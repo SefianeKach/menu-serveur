@@ -1,11 +1,5 @@
 == Projet de gestion de menu pour la cantina de Mos-Estafette
 
-=== Lancer le projet
-
-```bash
-./executer.sh
-```
-
 == Dépendances du Projet
 
 - Spring boot et tous les machins qui vont avec
