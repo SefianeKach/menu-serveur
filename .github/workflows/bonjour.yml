@@ -3,6 +3,11 @@ on:
   - push
 jobs:
   dire_bonjour:
+    container:
+      image: ghcr.io/cicd-lectures/gitpod:latest
+      options: --user = root
+
+      
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
