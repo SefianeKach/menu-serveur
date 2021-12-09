@@ -5,8 +5,8 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-20.04
     container:
-      image: ghcr.io/cicd-lectures/gitpod:latest
-      options: --user=root
+      image: ghcr.io/cicd-lectures/gitpod:latest # image de docker
+      options: --user=root #runner comme root
     steps:
       - uses: actions/checkout@v2 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
       - run: cat README.md | cowsay
