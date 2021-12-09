@@ -12,7 +12,7 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
       - run: mvn -version
-      - run: help:effective-pom
+      - run: mvn help:effective-pom
 
   dire_bonjour:
     runs-on: ubuntu-20.04
