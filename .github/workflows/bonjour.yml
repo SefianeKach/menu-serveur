@@ -11,8 +11,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'zulu'
-      - name: Get Maven version
-        run: mvn -version
+      - run: mvn -version
+      - run: help:effective-pom
 
   dire_bonjour:
     runs-on: ubuntu-20.04
