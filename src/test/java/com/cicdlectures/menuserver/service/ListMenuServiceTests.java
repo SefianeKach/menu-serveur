@@ -15,9 +15,7 @@ import com.cicdlectures.menuserver.service.ListMenuService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,8 +50,10 @@ public class ListMenuServiceTests {
         )
     );
     
-    // configure le mock pour qu'il retourne une instance de menu
-    when(menuRepository.save(any(Menu.class))).thenReturn(storedMenu);
+
+    // On configure le menuRepository pour qu'il retourne notre liste de menus.
+    when(menuRepository.findAll()).thenReturn(existingMenus);
+    
 
     // On appelle notre sujet
     List<MenuDto> gotMenus = subject.listMenus();
@@ -75,17 +75,5 @@ public class ListMenuServiceTests {
         // On compare la valeur obtenue avec la valeur attendue.
         assertEquals(wantMenus, gotMenus);
     }
-
-    
-    
-    // On déclare un ArgumentCaptor<Menu> (qui sert a capturer un argument)
-    ArgumentCaptor<Menu> savedMenuCaptor = ArgumentCaptor.forClass(Menu.class);
-
-    // On vérifie que la méthode `save` du menu repository à été appelée une seule fois
-    // et on capture l'argument avec lequel elle a été appelée (le menu).
-    verify(menuRepository, times(1)).save(savedMenuCaptor.capture());
-
-    // On récupère la valeur capturée pour pouvoir faire des assertions dessus.
-    savedMenu = savedMenuCaptor.getValue()
 
 }
